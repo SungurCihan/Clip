@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IEmployeeStarCount
+    public interface IEmployeeStarCountService
     {
         IDataResult<EmployeeStarCount> Get(Expression<Func<EmployeeStarCount, bool>> filter);
         IDataResult<List<EmployeeStarCount>> GetAll();

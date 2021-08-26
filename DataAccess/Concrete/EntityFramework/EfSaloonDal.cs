@@ -13,4 +13,3 @@ namespace DataAccess.Concrete.EntityFramework
     {
     }
 }
-*

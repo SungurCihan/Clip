@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ISocialMediaLink : IEntityRepository<SocialMediaLink>
+    public interface ISocialMediaLinkDal : IEntityRepository<SocialMediaLink>
     {
     }
 }

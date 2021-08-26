@@ -40,7 +40,7 @@ namespace Business.Concrete
 
         public IDataResult<List<SaloonStarCount>> GetAll()
         {
-            return new SuccessDataResult<List<SaloonStarCount>> (_saloonStarCountDal.GetAll());
+            return new SuccessDataResult<List<SaloonStarCount>>(_saloonStarCountDal.GetAll());
         }
 
         public IResult Update(SaloonStarCount saloonStarCount)

@@ -11,7 +11,9 @@ namespace Business.Constants
         //Appointment
         public static string AppointmentAdded = "Randevu başarıyla eklendi.";
         public static string AppointmentDeleted = "Randevu başarıyla silindi.";
-        public static string AppointmentUpdated = "Randevu başarıyla güncellendi.";
+        public static string AppointmentUpdated = "Randevu başarıyla güncellendi.  asdasdas";
+
+        
 
         //Customer
         public static string CustomerAdded = "Müşteri başarıyla eklendi.";
@@ -92,5 +94,8 @@ namespace Business.Constants
         public static string StoryAdded = "Hikaye başarıyla eklendi.";
         public static string StoryDeleted = "Hikaye başarıyla silindi.";
         public static string StoryUpdated = "Hikaye başarıyla güncellendi.";
+
+        //Validation Messages
+        public static string PasswordValidation = "Parolanız büyük harf, küçük harf ve sayı içermelidir.";
     }
 }
