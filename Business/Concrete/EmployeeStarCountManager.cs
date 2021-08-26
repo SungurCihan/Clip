@@ -18,7 +18,7 @@ namespace Business.Concrete
 
         public EmployeeStarCountManager(IEmployeeStarCountDal employeeStarCountDal)
         {
-            _employeeStarCountDal = employeeStarCountDal;
+            _employeeStarCountDal     = employeeStarCountDal;
         }
 
         public IResult Add(EmployeeStarCount employeeStarCount)
