@@ -24,7 +24,7 @@ namespace Business.Concrete
         public IResult Add(EmployeeStarCount employeeStarCount)
         {
             _employeeStarCountDal.Add(employeeStarCount);
-            return new SuccessResult(Messages.EmployeeStarCountAdded);
+                 return new SuccessResult(Messages.EmployeeStarCountAdded);
         }
 
         public IResult Delete(EmployeeStarCount employeeStarCount)
