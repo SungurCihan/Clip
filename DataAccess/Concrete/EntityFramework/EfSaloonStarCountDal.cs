@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfSaloonStarCount : EfEntityRepositoryBase<SaloonStarCount, ClipContext>, ISaloonStarCountDal
+    public class EfSaloonStarCountDal : EfEntityRepositoryBase<SaloonStarCount, ClipContext>, ISaloonStarCountDal
     {
     }
 }

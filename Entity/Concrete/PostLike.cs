@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Entity.Concrete
 {
-    [Table("posts")]
-    public class Post : IEntity
+    [Table("post_likes")]
+    public class PostLike : IEntity
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("saloon_id")]
-        public int SaloonId { get; set; }
-        [Column("image_id")]
-        public int ImageId { get; set; }
+        [Column("customer_id")]
+        public int CustomerId { get; set; }
+        [Column("post_id")]
+        public int PostId { get; set; }
     }
 }

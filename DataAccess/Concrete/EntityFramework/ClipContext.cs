@@ -32,6 +32,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Saved> Saveds { get; set; }
         public DbSet<Story> Stories { get; set; }
         public DbSet<PostComment> PostComments { get; set; }
+        public DbSet<PostLike> PostLikes { get; set; }
     }
 }
 

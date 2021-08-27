@@ -11,11 +11,11 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SavedsCController : ControllerBase
+    public class SavedsController : ControllerBase
     {
         ISavedService _savedService;
 
-        public SavedsCController(ISavedService savedService)
+        public SavedsController(ISavedService savedService)
         {
             _savedService = savedService;
         }

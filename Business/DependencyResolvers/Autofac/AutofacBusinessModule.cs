@@ -28,7 +28,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfEmployeeDal>().As<IEmployeeDal>().SingleInstance();
 
             builder.RegisterType<EmployeeStarCountManager>().As<IEmployeeStarCountService>().SingleInstance();
-            builder.RegisterType<EfEmployeeStarCount>().As<IEmployeeStarCountDal>().SingleInstance();
+            builder.RegisterType<EfEmployeeStarCountDal>().As<IEmployeeStarCountDal>().SingleInstance();
 
             builder.RegisterType<FavoriteManager>().As<IFavoriteService>().SingleInstance();
             builder.RegisterType<EfFavoriteDal>().As<IFavoriteDal>().SingleInstance();
@@ -41,6 +41,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<PostCommentManager>().As<IPostCommentService>().SingleInstance();
             builder.RegisterType<EfPostCommentDal>().As<IPostCommentDal>().SingleInstance();
+
+            builder.RegisterType<PostLikeManager>().As<IPostLikeService>().SingleInstance();
+            builder.RegisterType<EfPostLikeDal>().As<IPostLikeDal>().SingleInstance();
 
             builder.RegisterType<PostManager>().As<IPostService>().SingleInstance();
             builder.RegisterType<EfPostDal>().As<IPostDal>().SingleInstance();
@@ -55,7 +58,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfSaloonImageDal>().As<ISaloonImageDal>().SingleInstance();
 
             builder.RegisterType<SaloonStarCountManager>().As<ISaloonStarCountService>().SingleInstance();
-            builder.RegisterType<EfSaloonStarCount>().As<ISaloonStarCountDal>().SingleInstance();
+            builder.RegisterType<EfSaloonStarCountDal>().As<ISaloonStarCountDal>().SingleInstance();
 
             builder.RegisterType<SavedManager>().As<ISavedService>().SingleInstance();
             builder.RegisterType<EfSavedDal>().As<ISavedDal>().SingleInstance();
@@ -65,7 +68,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfServiceDal>().As<IServiceDal>().SingleInstance();
 
             builder.RegisterType<SocialMediaLinkManager>().As<ISocialMediaLinkService>().SingleInstance();
-            builder.RegisterType<EfSocialMediaLink>().As<ISocialMediaLinkDal>().SingleInstance();
+            builder.RegisterType<EfSocialMediaLinkDal>().As<ISocialMediaLinkDal>().SingleInstance();
 
             builder.RegisterType<StoryManager>().As<IStoryService>().SingleInstance();
             builder.RegisterType<EfStoryDal>().As<IStoryDal>().SingleInstance();

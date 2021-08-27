@@ -11,14 +11,14 @@ namespace Business.Constants
         //Appointment
         public static string AppointmentAdded = "Randevu başarıyla eklendi.";
         public static string AppointmentDeleted = "Randevu başarıyla silindi.";
-        public static string AppointmentUpdated = "Randevu başarıyla güncellendi.  asdasdas";
-
-        
+        public static string AppointmentUpdated = "Randevu başarıyla güncellendi.  asdasdas";     
 
         //Customer
         public static string CustomerAdded = "Müşteri başarıyla eklendi.";
         public static string CustomerDeleted = "Müşteri başarıyla silindi.";
         public static string CustomerUpdated = "Müşteri başarıyla güncellendi.";
+        public static string CustomerEmailExistMessage = "Bu e-posta ile kayıtlı bir hesap var.";
+        public static string CustomerPhoneNumberExistMessage = "Bu telefon numarası ile kayıtlı bir hesap var.";
 
         //Employee
         public static string EmployeeAdded = "Personel başarıyla eklendi.";
@@ -41,9 +41,9 @@ namespace Business.Constants
         public static string FolowerUpdated = "Takipçi başarıyla güncellendi.";
 
         //Image
-        public static string ImageAdded = "Randevu başarıyla eklendi.";
-        public static string ImageDeleted = "Randevu başarıyla silindi.";
-        public static string ImageUpdated = "Randevu başarıyla güncellendi.";
+        public static string ImageAdded = "Fotoğraf başarıyla eklendi.";
+        public static string ImageDeleted = "Fotoğraf başarıyla silindi.";
+        public static string ImageUpdated = "Fotoğraf başarıyla güncellendi.";
 
         //Post
         public static string PostAdded = "Gönderi başarıyla eklendi.";
@@ -54,6 +54,11 @@ namespace Business.Constants
         public static string PostCommentAdded = "Gönderi yorumu başarıyla eklendi.";
         public static string PostCommentDeleted = "Gönderi yorumu başarıyla silindi.";
         public static string PostCommentUpdated = "Gönderi yorumu başarıyla güncellendi.";
+
+        //PostLike
+        public static string PostLikeAdded = "Gönderi beğenisi başarıyla eklendi.";
+        public static string PostLikeDeleted = "Gönderi beğenisi başarıyla silindi.";
+        public static string PostLikeUpdated = "Gönderi beğenisi başarıyla güncellendi.";
 
         //Saloon
         public static string SaloonAdded = "Kuaför başarıyla eklendi.";

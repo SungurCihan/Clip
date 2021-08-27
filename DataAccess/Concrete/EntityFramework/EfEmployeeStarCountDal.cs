@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfSocialMediaLink : EfEntityRepositoryBase<SocialMediaLink, ClipContext>, ISocialMediaLinkDal
+    public class EfEmployeeStarCountDal : EfEntityRepositoryBase<EmployeeStarCount, ClipContext>, IEmployeeStarCountDal
     {
     }
 }

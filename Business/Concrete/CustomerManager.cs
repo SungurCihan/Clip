@@ -3,6 +3,7 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConserns.Validation.FluentValidation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -27,6 +28,13 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {
+            IResult result = BusinessRules.Run(IfEmailExist(customer.Email),
+                                               IfPhoneNumberExist(customer.PhoneNumber));
+
+            if (result != null)
+            {
+                return result;
+            }
 
             _customerDal.Add(customer);
             return new SuccessResult(Messages.CustomerAdded);
@@ -52,6 +60,27 @@ namespace Business.Concrete
         {
             _customerDal.Update(customer);
             return new SuccessResult(Messages.CustomerUpdated);
+        }
+
+        //Business Rules
+        public IResult IfEmailExist(string email)
+        {
+            var dene = _customerDal.Get(c => c.Email == email);
+            if (dene != null)
+            {
+                return new ErrorResult(Messages.CustomerEmailExistMessage);
+            }
+            return new SuccessResult();
+        }
+
+        public IResult IfPhoneNumberExist(string phoneNumber)
+        {
+            var dene = _customerDal.Get(c => c.PhoneNumber == phoneNumber);
+            if (dene != null)
+            {
+                return new ErrorResult(Messages.CustomerPhoneNumberExistMessage);
+            }
+            return new SuccessResult();
         }
     }
 }
