@@ -100,7 +100,25 @@ namespace Business.Constants
         public static string StoryDeleted = "Hikaye başarıyla silindi.";
         public static string StoryUpdated = "Hikaye başarıyla güncellendi.";
 
+        //User
+        public static string UserAdded = "Kullanıcı başarıyla eklendi.";
+        public static string UserDeleted = "Kullanıcı başarıyla silindi.";
+        public static string UserUpdated = "Kullanıcı başarıyla güncellendi.";
+
+        //Story
+        public static string OperationClaimAdded = "OperationClaim başarıyla eklendi.";
+        public static string OperationClaimDeleted = "OperationClaim başarıyla silindi.";
+        public static string OperationClaimUpdated = "OperationClaim başarıyla güncellendi.";
+
+        //UserOperationClaim
+        public static string UserOperationClaimAdded = "UserOperationClaim başarıyla eklendi.";
+        public static string UserOperationClaimDeleted = "UserOperationClaim başarıyla silindi.";
+        public static string UserOperationClaimUpdated = "UserOperationClaim başarıyla güncellendi.";
+
         //Validation Messages
         public static string PasswordValidation = "Parolanız büyük harf, küçük harf ve sayı içermelidir.";
+
+        //Authorize Messages
+        public static string AuthorizedDenied = "Bu işlemi gerçekleişrmeye yetkiniz yok.";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -25,16 +26,17 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
+        [SecuredOperation("user.add,admin")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {
-            IResult result = BusinessRules.Run(IfEmailExist(customer.Email),
-                                               IfPhoneNumberExist(customer.PhoneNumber));
+            //IResult result = BusinessRules.Run(IfEmailExist(customer.Email),
+            //                                   IfPhoneNumberExist(customer.PhoneNumber));
 
-            if (result != null)
-            {
-                return result;
-            }
+            //if (result != null)
+            //{
+            //    return result;
+            //}
 
             _customerDal.Add(customer);
             return new SuccessResult(Messages.CustomerAdded);
@@ -63,24 +65,24 @@ namespace Business.Concrete
         }
 
         //Business Rules
-        public IResult IfEmailExist(string email)
-        {
-            var dene = _customerDal.Get(c => c.Email == email);
-            if (dene != null)
-            {
-                return new ErrorResult(Messages.CustomerEmailExistMessage);
-            }
-            return new SuccessResult();
-        }
+        //public IResult IfEmailExist(string email)
+        //{
+        //    var dene = _customerDal.Get(c => c.Email == email);
+        //    if (dene != null)
+        //    {
+        //        return new ErrorResult(Messages.CustomerEmailExistMessage);
+        //    }
+        //    return new SuccessResult();
+        //}
 
-        public IResult IfPhoneNumberExist(string phoneNumber)
-        {
-            var dene = _customerDal.Get(c => c.PhoneNumber == phoneNumber);
-            if (dene != null)
-            {
-                return new ErrorResult(Messages.CustomerPhoneNumberExistMessage);
-            }
-            return new SuccessResult();
-        }
+        //public IResult IfPhoneNumberExist(string phoneNumber)
+        //{
+        //    var dene = _customerDal.Get(c => c.PhoneNumber == phoneNumber);
+        //    if (dene != null)
+        //    {
+        //        return new ErrorResult(Messages.CustomerPhoneNumberExistMessage);
+        //    }
+        //    return new SuccessResult();
+        //}
     }
 }

@@ -13,11 +13,11 @@ namespace Business.ValidationRules.FluentValidation
     {
         public CustomerValidator()
         {
-            RuleFor(c => c.FirstName).MinimumLength(2);
-            RuleFor(c => c.LastName).MinimumLength(2);
-            RuleFor(c => c.Email).EmailAddress();
-            RuleFor(c => c.Password).MinimumLength(8);
-            RuleFor(c => c.Password).Matches(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$").WithMessage(Messages.PasswordValidation);
+            //RuleFor(c => c.FirstName).MinimumLength(2);
+            //RuleFor(c => c.LastName).MinimumLength(2);
+            //RuleFor(c => c.Email).EmailAddress();
+            //RuleFor(c => c.Password).MinimumLength(8);
+            //RuleFor(c => c.Password).Matches(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$").WithMessage(Messages.PasswordValidation);
         }
     }
 }
