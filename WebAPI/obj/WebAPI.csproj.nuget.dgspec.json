@@ -70,6 +70,10 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[10.3.3, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
             }
           },
           "imports": [
@@ -147,6 +151,10 @@
             "FluentValidation": {
               "target": "Package",
               "version": "[10.3.3, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
             },
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
@@ -372,6 +380,22 @@
             "Autofac.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[7.1.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.AspNetCore.SpaServices": {
+              "target": "Package",
+              "version": "[3.1.18, )"
+            },
+            "Microsoft.AspNetCore.SpaServices.Extensions": {
+              "target": "Package",
+              "version": "[5.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

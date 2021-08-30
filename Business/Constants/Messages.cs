@@ -120,5 +120,13 @@ namespace Business.Constants
 
         //Authorize Messages
         public static string AuthorizedDenied = "Bu işlemi gerçekleişrmeye yetkiniz yok.";
+
+        //UserMessages
+        public static string UserRegistered = "Kullanıcı kaydı başarılı.";
+        public static string UserNotFound = "Girdiğiniz bilgilere sahip bir kullanıcı bulunamadı.";
+        public static string PasswordError = "Şifre hatalı.";
+        public static string SuccessfulLogin = "Giriş başarılı.";
+        public static string UserAlreadyExists = "Bu bilgilere sahip bir kullanıcı zaten mevcut.";
+        public static string AccessTokenCreated = "Access Token oluşturuldu.";
     }
 }

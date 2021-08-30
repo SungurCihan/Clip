@@ -70,3 +70,10 @@ C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Autofac.Extras.Dynamic
 C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Castle.Core.dll
 C:\Users\Sungur\source\repos\Clip\WebAPI\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.NodeServices.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\System.IO.Pipelines.dll
