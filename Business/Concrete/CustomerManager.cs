@@ -2,6 +2,7 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConserns.Validation.FluentValidation;
 using Core.Utilities.Business;
@@ -26,7 +27,8 @@ namespace Business.Concrete
             _customerDal = customerDal;
         }
 
-        [SecuredOperation("user.add,admin")]
+        [CacheRemoveAspect("ICustomerService.Get")]
+        //[SecuredOperation("appointment.add")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {
@@ -53,6 +55,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Customer>(_customerDal.Get(filter));
         }
 
+        [CacheAspect]
         public IDataResult<List<Customer>> GetAll()
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
