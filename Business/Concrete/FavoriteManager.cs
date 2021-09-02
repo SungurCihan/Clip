@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -23,6 +24,13 @@ namespace Business.Concrete
 
         public IResult Add(Favorite favorite)
         {
+            IResult result = BusinessRules.Run(FavoriteLimit(favorite.CustomerId, favorite.SaloonId));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _favoriteDal.Add(favorite);
             return new SuccessResult(Messages.FavoriteAdded);
         }
@@ -47,6 +55,17 @@ namespace Business.Concrete
         {
             _favoriteDal.Update(favorite);
             return new SuccessResult(Messages.FavoriteUpdated);
+        }
+
+        private IResult FavoriteLimit(int customerId, int saloonId)
+        {
+            var result = _favoriteDal.Get(f => f.CustomerId == customerId && f.SaloonId == saloonId);
+
+            if (result != null)
+            {
+                return new ErrorResult(Messages.FavoriteLimitExceded);
+            }
+            return new SuccessResult();
         }
     }
 }

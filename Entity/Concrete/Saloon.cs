@@ -20,7 +20,7 @@ namespace Entity.Concrete
         [Column("phone_number")]
         public string PhoneNumber { get; set; }
         [Column("description")]
-        public string description { get; set; }
+        public string Description { get; set; }
 
     }
 }

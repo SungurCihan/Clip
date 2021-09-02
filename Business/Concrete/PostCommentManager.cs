@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -23,6 +24,13 @@ namespace Business.Concrete
 
         public IResult Add(PostComment postComment)
         {
+            IResult result = BusinessRules.Run(CommentLimit(postComment.CustomerId, postComment.PostId));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _postCommentDal.Add(postComment);
             return new SuccessResult(Messages.PostCommentAdded);
         }
@@ -47,6 +55,18 @@ namespace Business.Concrete
         {
             _postCommentDal.Update(postComment);
             return new SuccessResult(Messages.PostCommentUpdated);
+        }
+
+        private IResult CommentLimit(int customerId, int postId)
+        {
+            int commentCount = _postCommentDal.GetAll(c => c.CustomerId == customerId && c.PostId == postId).Count;
+
+            if (commentCount > 5)
+            {
+                return new ErrorResult(Messages.PostCommentLimitExceded);
+            }
+
+            return new SuccessResult();
         }
     }
 }

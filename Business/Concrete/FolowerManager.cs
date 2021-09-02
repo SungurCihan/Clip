@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -23,6 +24,13 @@ namespace Business.Concrete
 
         public IResult Add(Folower folewer)
         {
+            IResult result = BusinessRules.Run(FollowLimit(folewer.CustomerId, folewer.SaloonId));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _folowerDal.Add(folewer);
             return new SuccessResult(Messages.FolowerAdded);
         }
@@ -47,6 +55,17 @@ namespace Business.Concrete
         {
             _folowerDal.Update(folewer);
             return new SuccessResult(Messages.FavoriteUpdated);
+        }
+
+        private IResult FollowLimit(int customerId, int saloonId)
+        {
+            var result = _folowerDal.Get(f => f.CustomerId == customerId && f.SaloonId == saloonId);
+
+            if (result != null)
+            {
+                return new ErrorResult(Messages.FolowLimitExceded);
+            }
+            return new SuccessResult();
         }
     }
 }

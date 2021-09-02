@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entity.Concrete;
+using Entity.DTO_s;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace Business.Abstract
         IResult Add(SaloonComment saloonComment);
         IResult Update(SaloonComment saloonComment);
         IResult Delete(SaloonComment saloonComment);
+        IDataResult<List<SaloonCommentDetailDto>> GetSaloonCommentDetails();
     }
 }

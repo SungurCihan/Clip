@@ -29,7 +29,6 @@ namespace Business.Concrete
 
         [CacheRemoveAspect("ICustomerService.Get")]
         //[SecuredOperation("appointment.add")]
-        [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {
             //IResult result = BusinessRules.Run(IfEmailExist(customer.Email),

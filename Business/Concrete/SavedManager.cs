@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -23,6 +24,13 @@ namespace Business.Concrete
 
         public IResult Add(Saved saved)
         {
+            IResult result = BusinessRules.Run(SavedLimit(saved.CustomerId, saved.PostId));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _savedDal.Add(saved);
             return new SuccessResult(Messages.SavedAdded);
         }
@@ -47,6 +55,17 @@ namespace Business.Concrete
         {
             _savedDal.Update(saved);
             return new SuccessResult(Messages.SavedUpdated);
+        }
+
+        private IResult SavedLimit(int customerId, int postId)
+        {
+            var result = _savedDal.Get(f => f.CustomerId == customerId && f.PostId == postId);
+
+            if (result != null)
+            {
+                return new ErrorResult(Messages.SavedLimitExceded);
+            }
+            return new SuccessResult();
         }
     }
 }

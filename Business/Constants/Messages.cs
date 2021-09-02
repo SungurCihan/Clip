@@ -11,7 +11,9 @@ namespace Business.Constants
         //Appointment
         public static string AppointmentAdded = "Randevu başarıyla eklendi.";
         public static string AppointmentDeleted = "Randevu başarıyla silindi.";
-        public static string AppointmentUpdated = "Randevu başarıyla güncellendi.  asdasdas";     
+        public static string AppointmentUpdated = "Randevu başarıyla güncellendi.";
+        public static string AppointmentConflict = "Söz konusu personlein bu saat aralığında zaten bir randevusu var";
+        public static string AppointmentTimeRange = "Randevunun bitiş saati başlangıç saatinden erken olamaz.";
 
         //Customer
         public static string CustomerAdded = "Müşteri başarıyla eklendi.";
@@ -34,11 +36,13 @@ namespace Business.Constants
         public static string FavoriteAdded = "Favori başarıyla eklendi.";
         public static string FavoriteDeleted = "Favori başarıyla silindi.";
         public static string FavoriteUpdated = "Favori başarıyla güncellendi.";
+        public static string FavoriteLimitExceded = "Bu salonu zaten favorilediniz.";
 
         //Folower
         public static string FolowerAdded = "Takipçi başarıyla eklendi.";
         public static string FolowerDeleted = "Takipçi başarıyla silindi.";
         public static string FolowerUpdated = "Takipçi başarıyla güncellendi.";
+        public static string FolowLimitExceded = "Bu salonu zaten takip ediyorsunuz.";
 
         //Image
         public static string ImageAdded = "Fotoğraf başarıyla eklendi.";
@@ -54,11 +58,13 @@ namespace Business.Constants
         public static string PostCommentAdded = "Gönderi yorumu başarıyla eklendi.";
         public static string PostCommentDeleted = "Gönderi yorumu başarıyla silindi.";
         public static string PostCommentUpdated = "Gönderi yorumu başarıyla güncellendi.";
+        public static string PostCommentLimitExceded = "Bir gönderi altına en fazla 5 yorum yapabilirsiniz";
 
         //PostLike
         public static string PostLikeAdded = "Gönderi beğenisi başarıyla eklendi.";
         public static string PostLikeDeleted = "Gönderi beğenisi başarıyla silindi.";
         public static string PostLikeUpdated = "Gönderi beğenisi başarıyla güncellendi.";
+        public static string PostLikeLimitExceded = "Bu gönderiyi zaten beğendiniz.";
 
         //Saloon
         public static string SaloonAdded = "Kuaför başarıyla eklendi.";
@@ -69,6 +75,7 @@ namespace Business.Constants
         public static string SaloonCommentAdded = "Kuaför yorumu başarıyla eklendi.";
         public static string SaloonCommentDeleted = "Kuaför yorumu başarıyla silindi.";
         public static string SaloonCommentUpdated = "Kuaför yorumu başarıyla güncellendi.";
+        public static string SaloonCommentLimitExceded = "Bu randevu için zaten bir yorum yaptınız.";
 
         //SaloonImage
         public static string SaloonImageAdded = "Kuaför resmi başarıyla eklendi.";
@@ -84,6 +91,7 @@ namespace Business.Constants
         public static string SavedAdded = "Kaydedilenlere başarıyla eklendi.";
         public static string SavedDeleted = "Kayıtlı gönderi başarıyla silindi.";
         public static string SavedUpdated = "Kaydelienlerden başarıyla güncellendi.";
+        public static string SavedLimitExceded = "Bu gönderiyi zaten kaydettiniz.";
 
         //Service
         public static string ServiceAdded = "Hizmet başarıyla eklendi.";
@@ -128,5 +136,6 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Giriş başarılı.";
         public static string UserAlreadyExists = "Bu bilgilere sahip bir kullanıcı zaten mevcut.";
         public static string AccessTokenCreated = "Access Token oluşturuldu.";
+        public static string PhoneNumberRepeats = "Bu telefon numarası ile kayıtlı bir kullanıcı mevcut.";
     }
 }

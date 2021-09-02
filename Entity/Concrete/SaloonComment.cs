@@ -13,10 +13,10 @@ namespace Entity.Concrete
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("saloon_id")]
-        public int SaloonId { get; set; }
-        [Column("customer_id")]
-        public int CustomerId { get; set; }
+
+        [Column("appointment_id")]
+        public int AppointmentId { get; set; }
+
         [Column("comment_content")]
         public string CommentContent { get; set; }
     }

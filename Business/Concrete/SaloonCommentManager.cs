@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using Entity.DTO_s;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +17,23 @@ namespace Business.Concrete
     public class SaloonCommentManager : ISaloonCommentService
     {
         ISaloonCommentDal _saloonCommentDal;
+        IAppointmentService _appointmentService;
 
-        public SaloonCommentManager(ISaloonCommentDal saloonCommentDal)
+        public SaloonCommentManager(ISaloonCommentDal saloonCommentDal, IAppointmentService appointmentService)
         {
             _saloonCommentDal = saloonCommentDal;
+            _appointmentService = appointmentService;
         }
 
         public IResult Add(SaloonComment saloonComment)
         {
+            IResult result = BusinessRules.Run(SaloonCommentLimit(saloonComment.AppointmentId));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _saloonCommentDal.Add(saloonComment);
             return new SuccessResult(Messages.SaloonCommentAdded);
         }
@@ -35,18 +46,35 @@ namespace Business.Concrete
 
         public IDataResult<SaloonComment> Get(Expression<Func<SaloonComment, bool>> filter)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<SaloonComment>(_saloonCommentDal.Get(filter));
         }
 
         public IDataResult<List<SaloonComment>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<SaloonComment>>(_saloonCommentDal.GetAll());
+        }
+
+        public IDataResult<List<SaloonCommentDetailDto>> GetSaloonCommentDetails()
+        {
+            return new SuccessDataResult<List<SaloonCommentDetailDto>>(_saloonCommentDal.GetSaloonCommentDetails());
         }
 
         public IResult Update(SaloonComment saloonComment)
         {
             _saloonCommentDal.Update(saloonComment);
             return new SuccessResult(Messages.SaloonCommentUpdated);
+        }
+
+        private IResult SaloonCommentLimit(int appointmentId)
+        {
+            var result = _saloonCommentDal.Get(s => s.AppointmentId == appointmentId);
+            var commentToCheckHour = _saloonCommentDal.GetSaloonCommentDetails(s => s.AppointmentId == appointmentId);
+
+            if (result != null)
+            {
+                return new ErrorResult(Messages.SaloonCommentLimitExceded);
+            }
+            return new SuccessResult();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -23,6 +24,13 @@ namespace Business.Concrete
 
         public IResult Add(PostLike postLike)
         {
+            IResult result = BusinessRules.Run(LikeLimit(postLike.CustomerId, postLike.PostId));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _postLikeDal.Add(postLike);
             return new SuccessResult(Messages.PostLikeAdded);
         }
@@ -47,6 +55,17 @@ namespace Business.Concrete
         {
             _postLikeDal.Update(postLike);
             return new SuccessResult(Messages.PostLikeUpdated);
+        }
+
+        private IResult LikeLimit(int customerId, int postId)
+        {
+            var result = _postLikeDal.Get(f => f.CustomerId == customerId && f.PostId == postId);
+
+            if (result != null)
+            {
+                return new ErrorResult(Messages.PostLikeLimitExceded);
+            }
+            return new SuccessResult();
         }
     }
 }

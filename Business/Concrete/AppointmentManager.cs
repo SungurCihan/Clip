@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -25,6 +26,13 @@ namespace Business.Concrete
         [SecuredOperation("appointment.add,admin")]
         public IResult Add(Appointment appointment)
         {
+            IResult result = BusinessRules.Run(AppointmentTimeRange(appointment.EmployeeId, appointment.StartHour, appointment.EndHour, appointment.AppointmentDate));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _appointmentDal.Add(appointment);
             return new SuccessResult(Messages.AppointmentAdded);
         }
@@ -50,5 +58,28 @@ namespace Business.Concrete
             _appointmentDal.Update(appointment);
             return new SuccessResult(Messages.AppointmentUpdated);
         }
+
+        private IResult AppointmentTimeRange(int employeeId, TimeSpan startHour, TimeSpan endHour, DateTime date)
+        {
+            var resultForStart = _appointmentDal.Get(a => a.StartHour < startHour && startHour < a.EndHour && a.EmployeeId == employeeId && a.AppointmentDate == date && a.Status == true);
+            var resultForEnd = _appointmentDal.Get(a => a.StartHour < endHour && endHour < a.EndHour && a.EmployeeId == employeeId && a.AppointmentDate == date && a.Status == true);
+
+            if (resultForStart != null || resultForEnd != null)
+            {
+                return new ErrorResult(Messages.AppointmentConflict);
+            }
+            return new SuccessResult();
+        }
+
+        private IResult AppointmentHourConsistency(int startHour, int endHour)
+        {
+            if (startHour >= endHour)
+            {
+                return new ErrorResult(Messages.AppointmentTimeRange);
+            }
+
+            return new SuccessResult();
+        }
     }
 }
+
