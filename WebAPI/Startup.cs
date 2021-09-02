@@ -2,6 +2,7 @@ using Business.Abstract;
 using Business.Concrete;
 using Core.DependencyResolvers;
 using Core.Extensions;
+using Core.Extensions.ErrorExtensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encyription;
 using Core.Utilities.Security.Jwt;
@@ -81,6 +82,8 @@ namespace WebAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPI v1"));
             }
+
+            app.ConfigureCustomExceptionMiddleware();
 
             app.UseCors(builder => builder.WithOrigins("http://localhost:44332").AllowAnyHeader());
 

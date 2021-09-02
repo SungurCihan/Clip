@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2Ayl364mb4Bxyf+svi1h33FxDMnhjBaQ5vuFukAptA/R6l3ZmfDp2VfxrT7XhhcM2iEXE4QxC2k2xFLgL2t/8w==",
+  "dgSpecHash": "sqv6P7Nyu1QnK1u7stRyVDECQqIqve45/84stjmCuIE3Y+DRyMlqH/ARqjSmMs7o/GWgLV996N2JPz3ZcvFeYg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sungur\\source\\repos\\Clip\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Sungur\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.0\\autofac.extras.dynamicproxy.6.0.0.nupkg.sha512",
     "C:\\Users\\Sungur\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\Sungur\\.nuget\\packages\\fluentvalidation\\10.3.3\\fluentvalidation.10.3.3.nupkg.sha512",
+    "C:\\Users\\Sungur\\.nuget\\packages\\log4net\\2.0.12\\log4net.2.0.12.nupkg.sha512",
     "C:\\Users\\Sungur\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.9\\microsoft.aspnetcore.authentication.jwtbearer.5.0.9.nupkg.sha512",
     "C:\\Users\\Sungur\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\Sungur\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
