@@ -68,12 +68,21 @@ namespace Business.Concrete
         private IResult SaloonCommentLimit(int appointmentId)
         {
             var result = _saloonCommentDal.Get(s => s.AppointmentId == appointmentId);
-            var commentToCheckHour = _saloonCommentDal.GetSaloonCommentDetails(s => s.AppointmentId == appointmentId);
+            var commentToCheckHour = _appointmentService.Get(a => a.Id == appointmentId);
+
+            double endHour = Convert.ToDouble(commentToCheckHour.Data.EndHour);
+            double now = Convert.ToDouble(DateTime.Now.Hour) + (Convert.ToDouble(DateTime.Now.Minute) / 100);  
+
+            if (endHour + 0.15 >= now || commentToCheckHour.Data.AppointmentDate.Day + 1 < DateTime.Now.Day)
+            {
+                return new ErrorResult(Messages.SaloonCommentTimeLimitExceded);
+            }
 
             if (result != null)
             {
                 return new ErrorResult(Messages.SaloonCommentLimitExceded);
             }
+
             return new SuccessResult();
         }
     }

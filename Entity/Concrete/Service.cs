@@ -18,6 +18,6 @@ namespace Entity.Concrete
         [Column("service_name")]
         public string ServiceName { get; set; }
         [Column("service_price")]
-        public Double ServicePrice { get; set; }
+        public decimal ServicePrice { get; set; }
     }
 }

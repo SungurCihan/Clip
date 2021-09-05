@@ -23,7 +23,7 @@ namespace Business.Concrete
             _appointmentDal = appointmentDal;
         }
 
-        [SecuredOperation("appointment.add,admin")]
+        //[SecuredOperation("appointment.add,admin")]
         public IResult Add(Appointment appointment)
         {
             IResult result = BusinessRules.Run(AppointmentTimeRange(appointment.EmployeeId, appointment.StartHour, appointment.EndHour, appointment.AppointmentDate));
@@ -59,10 +59,10 @@ namespace Business.Concrete
             return new SuccessResult(Messages.AppointmentUpdated);
         }
 
-        private IResult AppointmentTimeRange(int employeeId, TimeSpan startHour, TimeSpan endHour, DateTime date)
+        private IResult AppointmentTimeRange(int employeeId, decimal startHour, decimal endHour, DateTime date)
         {
-            var resultForStart = _appointmentDal.Get(a => a.StartHour < startHour && startHour < a.EndHour && a.EmployeeId == employeeId && a.AppointmentDate == date && a.Status == true);
-            var resultForEnd = _appointmentDal.Get(a => a.StartHour < endHour && endHour < a.EndHour && a.EmployeeId == employeeId && a.AppointmentDate == date && a.Status == true);
+            var resultForStart = _appointmentDal.Get(a => Convert.ToDouble(a.StartHour) < Convert.ToDouble(startHour) && Convert.ToDouble(startHour) < Convert.ToDouble(a.EndHour) && a.EmployeeId == employeeId && a.AppointmentDate == date && a.Status == true);
+            var resultForEnd = _appointmentDal.Get(a => Convert.ToDouble(a.StartHour) < Convert.ToDouble(endHour) && Convert.ToDouble(endHour) < Convert.ToDouble(a.EndHour) && a.EmployeeId == employeeId && a.AppointmentDate == date && a.Status == true);
 
             if (resultForStart != null || resultForEnd != null)
             {

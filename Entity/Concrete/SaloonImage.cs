@@ -13,7 +13,7 @@ namespace Entity.Concrete
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("ssaloon_id")]
+        [Column("saloon_id")]
         public int SaloonId { get; set; }
         [Column("image_id")]
         public int ImageId { get; set; }

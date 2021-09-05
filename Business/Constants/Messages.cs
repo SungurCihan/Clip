@@ -22,6 +22,16 @@ namespace Business.Constants
         public static string CustomerEmailExistMessage = "Bu e-posta ile kayıtlı bir hesap var.";
         public static string CustomerPhoneNumberExistMessage = "Bu telefon numarası ile kayıtlı bir hesap var.";
 
+        //Comment
+        public static string CommentAdded = "Yorum başarıyla eklendi.";
+        public static string CommentDeleted = "Yorum başarıyla silindi.";
+        public static string CommentUpdated = "Yorum başarıyla güncellendi.";
+
+        //CommentResponse
+        public static string CommentResponseAdded = "Yorum yanıtı başarıyla eklendi.";
+        public static string CommentResponseDeleted = "Yorum yanıtı başarıyla silindi.";
+        public static string CommentResponseUpdated = "Yorum yanıtı başarıyla güncellendi.";
+
         //Employee
         public static string EmployeeAdded = "Personel başarıyla eklendi.";
         public static string EmployeeDeleted = "Personel başarıyla silindi.";
@@ -44,10 +54,30 @@ namespace Business.Constants
         public static string FolowerUpdated = "Takipçi başarıyla güncellendi.";
         public static string FolowLimitExceded = "Bu salonu zaten takip ediyorsunuz.";
 
+        //Faq
+        public static string FaqAdded = "Sıkça sorulan soru başarıyla eklendi.";
+        public static string FaqDeleted = "Sıkça sorulan soru başarıyla silindi.";
+        public static string FaqUpdated = "Sıkça sorulan soru başarıyla güncellendi.";
+
         //Image
         public static string ImageAdded = "Fotoğraf başarıyla eklendi.";
         public static string ImageDeleted = "Fotoğraf başarıyla silindi.";
         public static string ImageUpdated = "Fotoğraf başarıyla güncellendi.";
+
+        //Notification
+        public static string NotificationAdded = "Bildirim başarıyla eklendi.";
+        public static string NotificationDeleted = "Bildirim başarıyla silindi.";
+        public static string NotificationUpdated = "Bildirim başarıyla güncellendi.";
+
+        //SaloonNotification
+        public static string SaloonNotificationAdded = "Kuaför bildirimi başarıyla eklendi.";
+        public static string SaloonNotificationDeleted = "Kuaför bildirimi başarıyla silindi.";
+        public static string SaloonNotificationUpdated = "Kuaför bildirimi başarıyla güncellendi.";
+
+        //SystemNotification
+        public static string SystemNotificationAdded = "Sistem bildirimi başarıyla eklendi.";
+        public static string SystemNotificationDeleted = "Sistem bildirimi başarıyla silindi.";
+        public static string SystemNotificationUpdated = "Sistem bildirimi başarıyla güncellendi.";
 
         //Post
         public static string PostAdded = "Gönderi başarıyla eklendi.";
@@ -70,17 +100,20 @@ namespace Business.Constants
         public static string SaloonAdded = "Kuaför başarıyla eklendi.";
         public static string SaloonDeleted = "Kuaför başarıyla silindi.";
         public static string SaloonUpdated = "Kuaför başarıyla güncellendi.";
+        public static string SaloonPhoneNumberRepeats = "Bu telefon numarası ile kayıtlı bir kuaför mevcut.";
 
         //SaloonComment
         public static string SaloonCommentAdded = "Kuaför yorumu başarıyla eklendi.";
         public static string SaloonCommentDeleted = "Kuaför yorumu başarıyla silindi.";
         public static string SaloonCommentUpdated = "Kuaför yorumu başarıyla güncellendi.";
         public static string SaloonCommentLimitExceded = "Bu randevu için zaten bir yorum yaptınız.";
+        public static string SaloonCommentTimeLimitExceded = "Randevu sonrasında 15 dakika ile 24 saat arasında yorum yapabilirsiniz.";
 
         //SaloonImage
         public static string SaloonImageAdded = "Kuaför resmi başarıyla eklendi.";
         public static string SaloonImageDeleted = "Kuaför resmi başarıyla silindi.";
         public static string SaloonImageUpdated = "Kuaför resmi başarıyla güncellendi.";
+        public static string SaloonImageLimitExceded = "Bir kuaför ancak 5 fotoğrafa sahip olabilir.";
 
         //SaloonStarCount
         public static string SaloonStarCountAdded = "Kuaför yıldız puanı başarıyla eklendi.";

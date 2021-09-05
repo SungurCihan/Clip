@@ -17,7 +17,7 @@ namespace Entity.Concrete
         [Column("appointment_id")]
         public int AppointmentId { get; set; }
 
-        [Column("comment_content")]
-        public string CommentContent { get; set; }
+        [Column("comment_id")]
+        public int CommentId { get; set; }
     }
 }

@@ -24,9 +24,9 @@ namespace Entity.Concrete
         [Column("appointment_date")]
         public DateTime AppointmentDate { get; set; }
         [Column("start_hour")]
-        public TimeSpan StartHour { get; set; }
+        public decimal StartHour { get; set; }
         [Column("end_hour")]
-        public TimeSpan EndHour { get; set; }
+        public decimal EndHour { get; set; }
         [Column("status")]
         public bool Status { get; set; }
     }

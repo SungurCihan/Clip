@@ -16,8 +16,8 @@ namespace Entity.DTO_s
         public int CustomerId { get; set; }
         public int ServiceId { get; set; }
         public DateTime AppointmentDate { get; set; }
-        public TimeSpan StartHour { get; set; }
-        public TimeSpan EndHour { get; set; }
+        public decimal StartHour { get; set; }
+        public decimal EndHour { get; set; }
         public string CommentContent { get; set; }
         public bool Status { get; set; }
     }

@@ -18,6 +18,6 @@ namespace Entity.Concrete
         [Column("saloon_id")]
         public int SaloonId { get; set; }
         [Column("rating")]
-        public double Rating { get; set; }
+        public decimal Rating { get; set; }
     }
 }

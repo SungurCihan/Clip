@@ -27,6 +27,8 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Image> Images { get; set; }
         public DbSet<Folower> Folowers { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<CommentResponse> CommentResponses { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
@@ -37,6 +39,11 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<User> Users { get; set; }
         public DbSet<OperationClaim> OperationClaims { get; set; }
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<Faq> Faqs { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<SaloonNotification> SaloonNotifications { get; set; }
+        public DbSet<SystemNotification> SystemNotifications { get; set; }
+
     }
 }
 

@@ -17,7 +17,7 @@ namespace Entity.Concrete
         public int CustomerId { get; set; }
         [Column("post_id")]
         public int PostId { get; set; }
-        [Column("comment_content")]
-        public string CommentContent { get; set; }
+        [Column("comment_id")]
+        public int CommentId { get; set; }
     }
 }

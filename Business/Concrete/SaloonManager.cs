@@ -48,5 +48,17 @@ namespace Business.Concrete
             _saloonDal.Update(saloon);
             return new SuccessResult(Messages.SaloonUpdated);
         }
+
+        private IResult DublicatePhoneNumber(string phoneNumber)
+        {
+            var result = _saloonDal.Get(u => u.PhoneNumber == phoneNumber);
+
+            if (result != null)
+            {
+                return new ErrorResult(Messages.SaloonPhoneNumberRepeats);
+            }
+
+            return new SuccessResult();
+        }
     }
 }

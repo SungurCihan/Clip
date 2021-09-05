@@ -13,5 +13,7 @@ namespace DataAccess.Abstract
     public interface ISaloonCommentDal : IEntityRepository<SaloonComment>
     {
         List<SaloonCommentDetailDto> GetSaloonCommentDetails(Expression<Func<SaloonCommentDetailDto, bool>> filter = null);
+
+       SaloonCommentDetailDto GetSaloonCommentDetailsSingular(Expression<Func<SaloonCommentDetailDto, bool>> filter);
     }
 }

@@ -25,6 +25,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<CustomerManager>().As<ICustomerService>().SingleInstance();
             builder.RegisterType<EfCustomerDal>().As<ICustomerDal>().SingleInstance();
 
+            builder.RegisterType<CommentManager>().As<ICommentService>().SingleInstance();
+            builder.RegisterType<EfCommentDal>().As<ICommentDal>().SingleInstance();
+
+            builder.RegisterType<CommentResponseManager>().As<ICommentResponseService>().SingleInstance();
+            builder.RegisterType<EfCommentResponseDal>().As<ICommentResponseDal>().SingleInstance();
+
             builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
             builder.RegisterType<EfEmployeeDal>().As<IEmployeeDal>().SingleInstance();
 
@@ -34,11 +40,23 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<FavoriteManager>().As<IFavoriteService>().SingleInstance();
             builder.RegisterType<EfFavoriteDal>().As<IFavoriteDal>().SingleInstance();
 
+            builder.RegisterType<FaqManager>().As<IFaqService>().SingleInstance();
+            builder.RegisterType<EfFaqDal>().As<IFaqDal>().SingleInstance();
+
             builder.RegisterType<FolowerManager>().As<IFolowerService>().SingleInstance();
             builder.RegisterType<EfFolowerDal>().As<IFolowerDal>().SingleInstance();
 
             builder.RegisterType<ImageManager>().As<IImageService>().SingleInstance();
             builder.RegisterType<EfImageDal>().As<IImageDal>().SingleInstance();
+
+            builder.RegisterType<NotificationManager>().As<INotificationService>().SingleInstance();
+            builder.RegisterType<EfNotificationDal>().As<INotificationDal>().SingleInstance();
+
+            builder.RegisterType<SaloonNotificationManager>().As<ISaloonNotificationService>().SingleInstance();
+            builder.RegisterType<EfSaloonNotificationDal>().As<ISaloonNotificationDal>().SingleInstance();
+
+            builder.RegisterType<SystemNotificationManager>().As<ISystemNotificationService>().SingleInstance();
+            builder.RegisterType<EfSystemNotificationDal>().As<ISystemNotificationDal>().SingleInstance();
 
             builder.RegisterType<PostCommentManager>().As<IPostCommentService>().SingleInstance();
             builder.RegisterType<EfPostCommentDal>().As<IPostCommentDal>().SingleInstance();
@@ -63,7 +81,6 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<SavedManager>().As<ISavedService>().SingleInstance();
             builder.RegisterType<EfSavedDal>().As<ISavedDal>().SingleInstance();
-
 
             builder.RegisterType<ServiceManager>().As<IServiceService>().SingleInstance();
             builder.RegisterType<EfServiceDal>().As<IServiceDal>().SingleInstance();
