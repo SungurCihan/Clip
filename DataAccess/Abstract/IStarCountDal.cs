@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ISaloonStarCountDal : IEntityRepository<SaloonStarCount>
+    public interface IStarCountDal : IEntityRepository<StarCount>
     {
     }
 }

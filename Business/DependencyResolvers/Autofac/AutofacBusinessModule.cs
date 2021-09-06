@@ -34,8 +34,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
             builder.RegisterType<EfEmployeeDal>().As<IEmployeeDal>().SingleInstance();
 
-            builder.RegisterType<EmployeeStarCountManager>().As<IEmployeeStarCountService>().SingleInstance();
-            builder.RegisterType<EfEmployeeStarCountDal>().As<IEmployeeStarCountDal>().SingleInstance();
+            builder.RegisterType<EmployeeProfilePhotoManager>().As<IEmployeeProfilePhotoService>().SingleInstance();
+            builder.RegisterType<EfEmployeeProfilePhotoDal>().As<IEmployeeProfilePhotoDal>().SingleInstance();
 
             builder.RegisterType<FavoriteManager>().As<IFavoriteService>().SingleInstance();
             builder.RegisterType<EfFavoriteDal>().As<IFavoriteDal>().SingleInstance();
@@ -76,8 +76,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<SaloonImageManager>().As<ISaloonImageService>().SingleInstance();
             builder.RegisterType<EfSaloonImageDal>().As<ISaloonImageDal>().SingleInstance();
 
-            builder.RegisterType<SaloonStarCountManager>().As<ISaloonStarCountService>().SingleInstance();
-            builder.RegisterType<EfSaloonStarCountDal>().As<ISaloonStarCountDal>().SingleInstance();
+            builder.RegisterType<SaloonProfilePhotoManager>().As<ISaloonProfilePhotoService>().SingleInstance();
+            builder.RegisterType<EfSaloonProfilePhotoDal>().As<ISaloonProfilePhotoDal>().SingleInstance();
 
             builder.RegisterType<SavedManager>().As<ISavedService>().SingleInstance();
             builder.RegisterType<EfSavedDal>().As<ISavedDal>().SingleInstance();
@@ -88,6 +88,12 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<SocialMediaLinkManager>().As<ISocialMediaLinkService>().SingleInstance();
             builder.RegisterType<EfSocialMediaLinkDal>().As<ISocialMediaLinkDal>().SingleInstance();
 
+            builder.RegisterType<StarCountManager>().As<IStarCountService>().SingleInstance();
+            builder.RegisterType<EfStarCountDal>().As<IStarCountDal>().SingleInstance();
+
+            builder.RegisterType<StarCountTypeManager>().As<IStarCountTypeService>().SingleInstance();
+            builder.RegisterType<EfStarCountTypeDal>().As<IStarCountTypeDal>().SingleInstance();
+
             builder.RegisterType<StoryManager>().As<IStoryService>().SingleInstance();
             builder.RegisterType<EfStoryDal>().As<IStoryDal>().SingleInstance();
 
@@ -96,6 +102,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>().SingleInstance();
             builder.RegisterType<EfOperationClaimDal>().As<IOperationClaimDal>().SingleInstance();
+
+            builder.RegisterType<ProfilePhotoManager>().As<IProfilePhotoService>().SingleInstance();
+            builder.RegisterType<EfProfilePhotoDal>().As<IProfilePhotoDal>().SingleInstance();
 
             builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>().SingleInstance();
             builder.RegisterType<EfUserOperationClaimDal>().As<IUserOperationClaimDal>().SingleInstance();

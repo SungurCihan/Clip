@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -21,6 +23,7 @@ namespace Business.Concrete
             _notificationDal = notificationDal;
         }
 
+        [ValidationAspect(typeof(NotificationValidator))]
         public IResult Add(Notification notification)
         {
             _notificationDal.Add(notification);

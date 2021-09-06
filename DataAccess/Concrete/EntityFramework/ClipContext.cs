@@ -20,10 +20,8 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Service> Services { get; set; }
         public DbSet<SaloonImage> SaloonImages { get; set; }
         public DbSet<SocialMediaLink> SocialMediaLinks { get; set; }
-        public DbSet<SaloonStarCount> SaloonStarCounts { get; set; }
         public DbSet<SaloonComment> SaloonComments { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<EmployeeStarCount> EmployeeStarCounts { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Folower> Folowers { get; set; }
         public DbSet<Customer> Customers { get; set; }
@@ -43,6 +41,11 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<SaloonNotification> SaloonNotifications { get; set; }
         public DbSet<SystemNotification> SystemNotifications { get; set; }
+        public DbSet<StarCount> StarCounts { get; set; }
+        public DbSet<StarCountType> StarCountTypes { get; set; }
+        public DbSet<ProfilePhoto> ProfilePhotos { get; set; }
+        public DbSet<SaloonProfilePhoto> SaloonProfilePhotos { get; set; }
+        public DbSet<EmployeeProfilePhoto> EmployeeProfilePhotos { get; set; }
 
     }
 }

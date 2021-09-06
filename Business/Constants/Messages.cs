@@ -73,11 +73,37 @@ namespace Business.Constants
         public static string SaloonNotificationAdded = "Kuaför bildirimi başarıyla eklendi.";
         public static string SaloonNotificationDeleted = "Kuaför bildirimi başarıyla silindi.";
         public static string SaloonNotificationUpdated = "Kuaför bildirimi başarıyla güncellendi.";
+        public static string SaloonNotificationTimeLimitExceded = "Randevu bitiminden sonra 24 saat ile 7 gün aralığında bildirim gönderebilirsiniz.";
+
+        //StarCount
+        public static string StarCountAdded = "Yıldız puanı başarıyla eklendi.";
+        public static string StarCountDeleted = "Yıldız puanı başarıyla silindi.";
+        public static string StarCountUpdated = "Yıldız puanı başarıyla güncellendi.";
+
+        //StarCountType
+        public static string StarCountTypeAdded = "Yıldız puanı türü başarıyla eklendi.";
+        public static string StarCountTypeDeleted = "Yıldız puanı türü başarıyla silindi.";
+        public static string StarCountTypeUpdated = "Yıldız puanı türü başarıyla güncellendi.";
 
         //SystemNotification
         public static string SystemNotificationAdded = "Sistem bildirimi başarıyla eklendi.";
         public static string SystemNotificationDeleted = "Sistem bildirimi başarıyla silindi.";
         public static string SystemNotificationUpdated = "Sistem bildirimi başarıyla güncellendi.";
+
+        //ProfilePhoto
+        public static string ProfilePhotoAdded = "Profil fotoğrafı başarıyla eklendi.";
+        public static string ProfilePhotoDeleted = "Profil fotoğrafı başarıyla silindi.";
+        public static string ProfilePhotoUpdated = "Profil fotoğrafı başarıyla güncellendi.";
+
+        //SaloonProfilePhoto
+        public static string SaloonProfilePhotoAdded = "Kuaför profil fotoğrafı başarıyla eklendi.";
+        public static string SaloonProfilePhotoDeleted = "Kuaför profil fotoğrafı başarıyla silindi.";
+        public static string SaloonProfilePhotoUpdated = "Kuaför profil fotoğrafı başarıyla güncellendi.";
+
+        //EmployeeProfilPhoto
+        public static string EmployeeProfilPhotoAdded = "Personel profil fotoğrafı başarıyla eklendi.";
+        public static string EmployeeProfilPhotoDeleted = "Personel profil fotoğrafı başarıyla silindi.";
+        public static string EmployeeProfilPhotoUpdated = "Personel profil fotoğrafı başarıyla güncellendi.";
 
         //Post
         public static string PostAdded = "Gönderi başarıyla eklendi.";
@@ -157,7 +183,7 @@ namespace Business.Constants
         public static string UserOperationClaimUpdated = "UserOperationClaim başarıyla güncellendi.";
 
         //Validation Messages
-        public static string PasswordValidation = "Parolanız büyük harf, küçük harf ve sayı içermelidir.";
+        public static string PasswordValidation = "Parolanız en az bir küçük harf ve bir sayı içermelidir.";
 
         //Authorize Messages
         public static string AuthorizedDenied = "Bu işlemi gerçekleişrmeye yetkiniz yok.";

@@ -20,8 +20,10 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from s in context.SaloonComments
                              join a in context.Appointments
                              on s.AppointmentId equals a.Id
+                             join c in context.Comments
+                             on s.CommentId equals c.Id
                              select new SaloonCommentDetailDto { Id = s.Id, AppointmentId = s.AppointmentId, AppointmentDate = a.AppointmentDate, 
-                                                                CommentContent = s.CommentContent, CustomerId = a.CustomerId, EmployeeId = a.EmployeeId, 
+                                                                CommentContent = c.CommentContent, CustomerId = a.CustomerId, EmployeeId = a.EmployeeId, 
                                                                 EndHour = a.EndHour, SaloonId = a.SaloonId, ServiceId = a.ServiceId, StartHour = a.StartHour, 
                                                                 Status = a.Status };
 
@@ -36,12 +38,14 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from s in context.SaloonComments
                              join a in context.Appointments
                              on s.AppointmentId equals a.Id
+                             join c in context.Comments
+                             on s.CommentId equals c.Id
                              select new SaloonCommentDetailDto
                              {
                                  Id = s.Id,
                                  AppointmentId = s.AppointmentId,
                                  AppointmentDate = a.AppointmentDate,
-                                 CommentContent = s.CommentContent,
+                                 CommentContent = c.CommentContent,
                                  CustomerId = a.CustomerId,
                                  EmployeeId = a.EmployeeId,
                                  EndHour = a.EndHour,

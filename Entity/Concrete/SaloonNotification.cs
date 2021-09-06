@@ -19,5 +19,8 @@ namespace Entity.Concrete
 
         [Column("notification_id")]
         public int NotificationId { get; set; }
+
+        [Column("appointment_id")]
+        public int AppointmentId { get; set; }
     }
 }

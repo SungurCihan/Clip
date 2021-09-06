@@ -13,9 +13,14 @@ namespace Entity.Concrete
     {
         [Column("id")]
         public int Id { get; set; }
+
         [Column("saloon_id")]
         public int SaloonId { get; set; }
+
         [Column("image_id")]
         public int ImageId { get; set; }
+
+        [Column("post_content")]
+        public string PostContent { get; set; }
     }
 }

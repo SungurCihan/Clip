@@ -11,19 +11,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SaloonStarCountsController : ControllerBase
+    public class ProfilePhotosController : ControllerBase
     {
-        ISaloonStarCountService _saloonStarCountService;
+        IProfilePhotoService _profilPhotoService;
 
-        public SaloonStarCountsController(ISaloonStarCountService saloonStarCountService)
+        public ProfilePhotosController(IProfilePhotoService profilPhotoService)
         {
-            _saloonStarCountService = saloonStarCountService;
+            _profilPhotoService = profilPhotoService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _saloonStarCountService.GetAll();
+            var result = _profilPhotoService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -32,9 +32,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult AddSaloonStarCount(SaloonStarCount saloonStarCount)
+        public IActionResult AddAppointment(ProfilePhoto profilePhoto)
         {
-            var result = _saloonStarCountService.Add(saloonStarCount);
+            var result = _profilPhotoService.Add(profilePhoto);
             if (result.Success)
             {
                 return Ok(result);
@@ -43,9 +43,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult UpdateSaloonStarCount(SaloonStarCount saloonStarCount)
+        public IActionResult UpdateAppointment(ProfilePhoto profilePhoto)
         {
-            var result = _saloonStarCountService.Update(saloonStarCount);
+            var result = _profilPhotoService.Update(profilePhoto);
             if (result.Success)
             {
                 return Ok(result);
@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult DeleteSaloonStarCount(SaloonStarCount saloonStarCount)
+        public IActionResult DeleteAppointment(ProfilePhoto profilePhoto)
         {
-            var result = _saloonStarCountService.Delete(saloonStarCount);
+            var result = _profilPhotoService.Delete(profilePhoto);
             if (result.Success)
             {
                 return Ok(result);

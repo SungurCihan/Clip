@@ -11,19 +11,19 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeeStarCountsController : ControllerBase
+    public class SaloonProfilePhotosController : ControllerBase
     {
-        IEmployeeStarCountService _employeeStarCountService;
+        ISaloonProfilePhotoService _saloonProfilePhotoService;
 
-        public EmployeeStarCountsController(IEmployeeStarCountService employeeStarCountService)
+        public SaloonProfilePhotosController(ISaloonProfilePhotoService saloonProfilePhotoService)
         {
-            _employeeStarCountService = employeeStarCountService;
+            _saloonProfilePhotoService = saloonProfilePhotoService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _employeeStarCountService.GetAll();
+            var result = _saloonProfilePhotoService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -32,9 +32,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult AddEmployeeStarCount(EmployeeStarCount employeeStarCount)
+        public IActionResult AddAppointment(SaloonProfilePhoto saloonProfilePhoto)
         {
-            var result = _employeeStarCountService.Add(employeeStarCount);
+            var result = _saloonProfilePhotoService.Add(saloonProfilePhoto);
             if (result.Success)
             {
                 return Ok(result);
@@ -43,9 +43,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult UpdateEmployeeStarCount(EmployeeStarCount employeeStarCount)
+        public IActionResult UpdateAppointment(SaloonProfilePhoto saloonProfilePhoto)
         {
-            var result = _employeeStarCountService.Update(employeeStarCount);
+            var result = _saloonProfilePhotoService.Update(saloonProfilePhoto);
             if (result.Success)
             {
                 return Ok(result);
@@ -54,9 +54,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult DeleteEmployeeStarCount(EmployeeStarCount employeeStarCount)
+        public IActionResult DeleteAppointment(SaloonProfilePhoto saloonProfilePhoto)
         {
-            var result = _employeeStarCountService.Delete(employeeStarCount);
+            var result = _saloonProfilePhotoService.Delete(saloonProfilePhoto);
             if (result.Success)
             {
                 return Ok(result);

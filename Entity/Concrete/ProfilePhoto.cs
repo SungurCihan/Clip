@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace Entity.Concrete
 {
-    [Table("saloon_star_counts")]
-    public class SaloonStarCount : IEntity
+    [Table("profile_photos")]
+    public class ProfilePhoto : IEntity
     {
         [Column("id")]
         public int Id { get; set; }
-        [Column("saloon_id")]
-        public int SaloonId { get; set; }
-        [Column("star_count")]
-        public double StarCount { get; set; }
+
+        [Column("image_url")]
+        public string ImageUrl { get; set; }
     }
 }

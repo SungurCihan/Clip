@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entity.Concrete;
@@ -15,14 +16,23 @@ namespace Business.Concrete
     public class SaloonNotificationManager : ISaloonNotificationService
     {
         ISaloonNotificationDal _notificationDal;
+        IAppointmentService _appointmentService;
 
-        public SaloonNotificationManager(ISaloonNotificationDal notificationDal)
+        public SaloonNotificationManager(ISaloonNotificationDal notificationDal, IAppointmentService appointmentService)
         {
             _notificationDal = notificationDal;
+            _appointmentService = appointmentService;
         }
 
         public IResult Add(SaloonNotification saloonNotification)
         {
+            IResult result = BusinessRules.Run(NotificationLimit(saloonNotification.AppointmentId));
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _notificationDal.Add(saloonNotification);
             return new SuccessResult(Messages.SaloonNotificationAdded);
         }
@@ -47,6 +57,18 @@ namespace Business.Concrete
         {
             _notificationDal.Update(saloonNotification);
             return new SuccessResult(Messages.SaloonNotificationUpdated);
+        }
+
+        private IResult NotificationLimit(int appointmentId)
+        {
+            var appointmentToNotificate = _appointmentService.Get(a => a.Id == appointmentId);
+
+            if (DateTime.Now <= appointmentToNotificate.Data.AppointmentDate.AddHours(24) || DateTime.Now >= appointmentToNotificate.Data.AppointmentDate.AddDays(7))
+            {
+                return new ErrorResult(Messages.SaloonNotificationTimeLimitExceded);
+            }
+
+            return new SuccessResult();
         }
     }
 }
