@@ -3,6 +3,7 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Entities.Concrete;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Core.Utilities.Security.Jwt;
@@ -26,7 +27,6 @@ namespace Business.Concrete
             _tokenHelper = tokenHelper;
         }
 
-        [ValidationAspect(typeof(UserValidator))]
         public IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password)
         {
             byte[] passwordHash, passwordSalt;
@@ -42,6 +42,34 @@ namespace Business.Concrete
             };
             _userService.Add(user);
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
+        }
+
+        // Validation and Business controls before phone screen
+        [ValidationAspect(typeof(UserValidator))]
+        public IResult RegisterPreFlight(UserForRegisterDto userForRegisterDto)
+        {
+            IResult result = BusinessRules.Run(UserExists(userForRegisterDto.Email));
+
+            if (result != null)
+            {
+                return result;
+            }
+
+            return new SuccessResult();
+
+        }
+
+        public IResult RegisterPreFlightForPhone(UserForRegisterDto userForRegisterDto)
+        {
+            IResult result = BusinessRules.Run(DublicatePhoneNumber(userForRegisterDto.PhoneNumber));
+
+            if (result != null)
+            {
+                return result;
+            }
+
+            return new SuccessResult();
+
         }
 
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
@@ -66,6 +94,18 @@ namespace Business.Concrete
             {
                 return new ErrorResult(Messages.UserAlreadyExists);
             }
+            return new SuccessResult();
+        }
+
+        private IResult DublicatePhoneNumber(string phoneNumber)
+        {
+            var result = _userService.Get(u => u.PhoneNumber == phoneNumber);
+
+            if (result != null)
+            {
+                return new ErrorResult(Messages.PhoneNumberRepeats);
+            }
+
             return new SuccessResult();
         }
 

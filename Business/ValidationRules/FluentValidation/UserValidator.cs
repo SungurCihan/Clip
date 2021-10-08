@@ -14,6 +14,11 @@ namespace Business.ValidationRules.FluentValidation
     {
         public UserValidator()
         {
+            RuleFor(u => u.FirstName).MinimumLength(2);
+            RuleFor(u => u.LastName).MinimumLength(2);
+
+            RuleFor(u => u.Email).EmailAddress();
+
             RuleFor(u => u.Password).Matches(@"((?=.*\d)(?=.*[a-z]){8,15})").WithMessage(Messages.PasswordValidation);
             RuleFor(u => u.Password).MinimumLength(8);
         }

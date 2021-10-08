@@ -56,5 +56,27 @@ namespace WebAPI.Controllers
 
             return BadRequest(result.Message);
         }
+
+        [HttpPost("registerpreflight")]
+        public IActionResult RegisterPreFlight(UserForRegisterDto userForRegisterDto)
+        {
+            var result = _authService.RegisterPreFlight(userForRegisterDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("registerpreflightforphone")]
+        public IActionResult RegisterPreFlightForPhone(UserForRegisterDto userForRegisterDto)
+        {
+            var result = _authService.RegisterPreFlightForPhone(userForRegisterDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

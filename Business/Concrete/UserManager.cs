@@ -25,12 +25,6 @@ namespace Business.Concrete
 
         public IResult Add(User user)
         {
-            IResult result = BusinessRules.Run(DublicatePhoneNumber(user.PhoneNumber));
-
-            if (result != null)
-            {
-                return result;
-            }
 
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
@@ -71,18 +65,6 @@ namespace Business.Concrete
         {
             //İş Kodları
             return new SuccessDataResult<User>(_userDal.Get(u => u.Id == id));
-        }
-
-        private IResult DublicatePhoneNumber(string phoneNumber)
-        {
-            var result = _userDal.Get(u => u.PhoneNumber == phoneNumber);
-
-            if (result != null)
-            {
-                return new ErrorResult(Messages.PhoneNumberRepeats);
-            }
-
-            return new SuccessResult();
         }
     }
 }
