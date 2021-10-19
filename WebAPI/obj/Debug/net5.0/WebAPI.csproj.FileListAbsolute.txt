@@ -77,3 +77,4 @@ C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.AspNetCore.S
 C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\System.IO.Pipelines.dll
 C:\Users\Sungur\source\repos\Clip\WebAPI\bin\Debug\net5.0\log4net.dll
+C:\Users\Sungur\source\repos\Clip\WebAPI\obj\Debug\net5.0\WebAPI.MvcApplicationPartsAssemblyInfo.cs
