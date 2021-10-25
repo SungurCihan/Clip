@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Exception;
 using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConserns.Logging.Log4Net.Loggers;
 using Core.Entities.Concrete;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
@@ -72,6 +74,8 @@ namespace Business.Concrete
 
         }
 
+        //[ValidationAspect(typeof(LoginValidator))]
+        //[ExceptionLogAspect(typeof(DatabaseLogger))]
         public IDataResult<User> Login(UserForLoginDto userForLoginDto)
         {
             var userToCheck = _userService.GetByMail(userForLoginDto.Email);
